@@ -14,7 +14,7 @@
 		parameter integer C_S_AXI_ADDR_WIDTH	= 4,
 		
 		///////////////////////my parameters
-		parameter integer URAM_LEN = 64, // make sure URAM_LEN % 32 = 0
+		parameter integer URAM_LEN = 72, // make sure URAM_LEN % 72 = 0
         parameter integer MAX_HOLDER_COUNTER = 2, // 64/32
         parameter integer HOLDER_COUNTER_BIT = 2
 	)
@@ -87,8 +87,7 @@
 		
 		// below are my additionals
 		output wire bram_wen,
-		output wire bram_en,
-		output wire [6:0] bram_addr,
+		output wire [10:0] bram_addr,
 		output wire [URAM_LEN-1:0] bram_wdata,
 		input wire [URAM_LEN-1:0] bram_rdata
 	);
@@ -99,14 +98,18 @@
 	reg uram_counter=0; // used when having multiple URAMS
 	reg [6:0] addr_counter=0; // counter the output address
 		
-	reg [URAM_LEN-1:0]last_read_result = 0;
+	reg [URAM_LEN-1:0] pipelined_output = 0;
     reg bram_wen_reg=0;
-	reg bram_en_reg = 0;
-	reg [6:0] bram_addr_reg=0;
+	reg [10:0] bram_addr_reg=0;
 	reg [URAM_LEN-1:0] bram_wdata_reg = 0;
 	reg outputReady=0;
 	reg read_pipeline_reg1 = 0;
 	reg read_pipeline_reg2 = 0;
+	
+	reg debug_read = 0;
+	wire [URAM_LEN-1:0]debug_wire;
+	assign debug_wire = holder;
+	integer debug_reg_number = 3;
 	/////////////////////////////////////////////////////////////////
 
 	// AXI4LITE signals
@@ -260,6 +263,7 @@
 	               holder_counter <= 0;
 	               outputReady <=1'b1;
             end else begin 
+                outputReady <=1'b0;
                 holder_counter <= holder_counter + 1;
             end
             for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1)
@@ -284,6 +288,7 @@
 //	                    end
 //	        endcase
 	      end
+	    else outputReady <=1'b0;
 	  end
 	end    
 
@@ -343,6 +348,11 @@
 	          axi_arready <= 1'b1;
 	          // Read address latching
 	          axi_araddr  <= S_AXI_ARADDR;
+	          if(S_AXI_ARADDR[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]==debug_reg_number) begin
+	             debug_read <=1;
+	          end else begin
+	             debug_read <=0;
+	          end
 	          read_addr_assigned <= 1'b1;
 	        end
 	      else
@@ -389,33 +399,39 @@
 	// and the slave is ready to accept the read address.
 	assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
 	always @(*) begin
-	   reg_data_out <= last_read_result;
+	   if(debug_read == 1'b1) begin
+	       reg_data_out <= debug_wire;
+	   end
+	   else reg_data_out <= pipelined_output;
 	end
 	
 	always @(posedge S_AXI_ACLK)
 	begin
 	      // Address decoding for reading registers
-	    if(read_addr_assigned == 1'b1) begin
+	    if(read_addr_assigned == 1'b1 && outputReady ==1'b0) begin
               bram_addr_reg <= axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB];
-              bram_en_reg<=1'b1;
               bram_wen_reg<=1'b0;
-        end 
+        end else if (outputReady ==1'b1) begin
+	       bram_wen_reg<=1'b1;
+	       bram_addr_reg<=addr_counter;
+	       bram_wdata_reg <= holder;
+           addr_counter<= addr_counter+1;
+//           outputReady <=0;
+	   end
+        
         //////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // we need to change the following code in order to do continous read
-        else if(bram_en_reg == 1'b1 && bram_wen_reg == 1'b0)
-            bram_en_reg <= 0;
-        else if(bram_en_reg == 1'b1 && bram_wen_reg == 1'b1) begin
-            bram_en_reg <= 0;
+        else if(bram_wen_reg == 1'b1) begin
             bram_wen_reg <=0;
         end
         
-        if(bram_en_reg == 1'b1 && bram_wen_reg == 1'b0) read_pipeline_reg1 <= 1'b1;
+        if(bram_wen_reg == 0) read_pipeline_reg1 <= 1'b1;
         else read_pipeline_reg1 <= 1'b0;
         
         read_pipeline_reg2 <= read_pipeline_reg1;
         
         if (read_pipeline_reg2 == 1'b1) begin
-            last_read_result <= bram_rdata;
+            pipelined_output <= bram_rdata;
         end
 //	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
 //	        2'h0   : reg_data_out <= slv_reg0;
@@ -446,20 +462,18 @@
 	end    
 
 	// Add user logic here
-	always @(posedge S_AXI_ACLK) begin
-	   if (outputReady ==1'b1 && read_addr_assigned == 0) begin
-	       bram_wen_reg<=1'b1;
-	       bram_en_reg<=1'b1;
-	       bram_addr_reg<=addr_counter;
-	       bram_wdata_reg <= holder;
-           addr_counter<= addr_counter+1;
-           outputReady <=0;
-	   end
-	end
+//	always @(posedge S_AXI_ACLK) begin
+//	   if (outputReady ==1'b1) begin
+//	       bram_wen_reg<=1'b1;
+//	       bram_addr_reg<=addr_counter;
+//	       bram_wdata_reg <= holder;
+//           addr_counter<= addr_counter+1;
+//           outputReady <=0;
+//	   end
+//	end
     
     assign bram_wen = bram_wen_reg;
     assign bram_addr = bram_addr_reg;
-    assign bram_en = bram_en_reg;
     assign bram_wdata = bram_wdata_reg;
 	// User logic ends
 

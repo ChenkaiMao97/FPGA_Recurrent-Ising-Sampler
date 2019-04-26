@@ -14,9 +14,9 @@
 		parameter integer C_S00_AXI_ADDR_WIDTH	= 4,
 		
 		///////////////////////my parameters
-		parameter integer URAM_LEN = 64, // make sure URAM_LEN % 32 = 0
-        parameter integer MAX_HOLDER_COUNTER = 2, // 64/32
-        parameter integer HOLDER_COUNTER_BIT = 2
+		parameter integer URAM_LEN = 32, // make sure URAM_LEN % 72 = 0 
+        parameter integer MAX_HOLDER_COUNTER = 1, // 64/32
+        parameter integer HOLDER_COUNTER_BIT = 1
 	)
 	(
 		// Users to add ports here
@@ -48,16 +48,15 @@
 		output wire  s00_axi_rvalid,
 		input wire  s00_axi_rready,
 		output wire bram_wen,
-		output wire bram_en,
-		output wire [6:0] bram_addr,
-		output wire [63:0] bram_wdata,
-		input wire [63:0] bram_rdata
+		output wire [10:0] bram_addr,
+		output wire [URAM_LEN-1:0] bram_wdata,
+		input wire [URAM_LEN-1:0] bram_rdata
 	);
 // Instantiation of Axi Bus Interface S00_AXI
 	axi_bram_v1_0_S00_AXI # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
-		.URAM_LEN(URAM_LEN), // make sure URAM_LEN % 32 = 0
+		.URAM_LEN(URAM_LEN), // make sure URAM_LEN % 72 = 0
         .MAX_HOLDER_COUNTER(MAX_HOLDER_COUNTER), // 64/32
         .HOLDER_COUNTER_BIT(HOLDER_COUNTER_BIT)
 	) axi_bram_v1_0_S00_AXI_inst (
@@ -82,7 +81,6 @@
 		.S_AXI_RRESP(s00_axi_rresp),
 		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
-		.bram_en(bram_en),
 		.bram_wen(bram_wen),
 		.bram_addr(bram_addr),
 		.bram_wdata(bram_wdata),

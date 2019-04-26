@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog   \
+"../../../../../myip_1.0/src/matrixMultiply1.v" \
+"../../../../../myip_1.0/hdl/myip_v1_0_S00_AXI.v" \
+"../../../../../myip_1.0/hdl/myip_v1_0.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

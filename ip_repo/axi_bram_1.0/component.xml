@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>778427c9</spirit:value>
+            <spirit:value>3308fced</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>778427c9</spirit:value>
+            <spirit:value>3308fced</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -617,19 +617,10 @@
         <spirit:name>bram_wen</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>bram_en</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>wire</spirit:typeName>
@@ -644,7 +635,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">6</spirit:left>
+            <spirit:left spirit:format="long">10</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -661,7 +652,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.URAM_LEN&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -678,7 +669,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.URAM_LEN&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -733,17 +724,17 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>URAM_LEN</spirit:name>
         <spirit:displayName>Uram Len</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.URAM_LEN">64</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.URAM_LEN">32</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>MAX_HOLDER_COUNTER</spirit:name>
         <spirit:displayName>Max Holder Counter</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MAX_HOLDER_COUNTER">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MAX_HOLDER_COUNTER">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>HOLDER_COUNTER_BIT</spirit:name>
         <spirit:displayName>Holder Counter Bit</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.HOLDER_COUNTER_BIT">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.HOLDER_COUNTER_BIT">1</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -773,7 +764,7 @@
       <spirit:file>
         <spirit:name>hdl/axi_bram_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_392bcc01</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a86d27a1</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -895,17 +886,17 @@
     <spirit:parameter>
       <spirit:name>URAM_LEN</spirit:name>
       <spirit:displayName>Uram Len</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.URAM_LEN">64</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.URAM_LEN">32</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MAX_HOLDER_COUNTER</spirit:name>
       <spirit:displayName>Max Holder Counter</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MAX_HOLDER_COUNTER">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MAX_HOLDER_COUNTER">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>HOLDER_COUNTER_BIT</spirit:name>
       <spirit:displayName>Holder Counter Bit</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.HOLDER_COUNTER_BIT">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.HOLDER_COUNTER_BIT">1</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -917,8 +908,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>axi_bram_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>16</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-03-23T16:05:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>29</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-04-04T05:47:11Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@28d7ccdb_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@280772ec_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
@@ -1157,16 +1148,197 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3e68a23f_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1726dfbc_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@31c6f6a8_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c4ba015_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f04b4d5_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@217672fc_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7dfeb51a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@171b1091_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ce8c48a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75fe2cd7_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3413bf30_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@635dd714_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24f948a0_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18fb3949_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@de69af4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@340025a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45c3422a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33ef9383_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@196f2a14_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fe7e200_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@600e5e10_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63914c65_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7612c441_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e23c269_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@710bd47c_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63eeecbd_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2cd4b1a5_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d20aaf_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@438224ea_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@473325b6_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68df61d4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1242984f_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b648aca_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58a0cc1b_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b973c45_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c860068_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@557917c9_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7873b68a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@190b9d31_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b0b90b_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@16f03b0d_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@112c6b73_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68c53896_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ddfc33d_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bb49567_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@537bf689_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2db6295d_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fd3c60a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4af49b97_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bba8951_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1910798c_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6598ccf4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f227bf_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@619a83c5_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9165a10_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e725536_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65eba66a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2168c3cf_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c56ff29_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58d0e88a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@166e7d52_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d500218_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2cc77544_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@475a64ad_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1eb6fc44_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42c6588f_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75789dd4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6694dfc2_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fcd00c3_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1abfec8a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@561d1835_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b733181_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5137826c_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9b7d4e1_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33fbe471_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68a5ef44_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@365f8a1_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3869da45_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@139b8bb0_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55ce8504_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4168b741_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@199df3f_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ab1ac91_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fe0fb4c_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54b228ba_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6406418b_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65baf71c_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5751690a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75038649_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37fa30fc_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@300d74b9_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e719d94_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6dc44027_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48e81c46_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14b1be03_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@141459a3_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@782ad6fd_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54befbcf_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@770121d6_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@272e7fca_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@859af34_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21f5bea5_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c8a6f1_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11fccc65_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10b3f13_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c5dbb55_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2cea7359_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36b6d99_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@381f452a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@16f11714_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78215458_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6efb343a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@135f56f4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13a05266_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ef39351_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f5f3172_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c63dc84_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7374eac6_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b10fb5_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12f60ef0_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c392671_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59055581_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5cd85e57_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52ff7d51_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ea7a511_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@478f0a4c_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@494c591b_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39edeeb2_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36d0d947_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a9e7e5a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67add86f_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fd300f2_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@361ac534_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@480195dd_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@540e6318_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@136dfb87_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e28e100_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18c08912_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@464338e0_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@420f3645_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2507e326_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@734a779a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6740f554_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5961acf4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@264f339e_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6df65da4_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50ab5e02_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19b73e3_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c27aee_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13d7bd11_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@340de25_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a9d6a15_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f742850_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73390b33_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1edbb744_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@361e6eed_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3df06a36_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@437689f1_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f38ba99_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a5a08b_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35a6f844_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1eff1417_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2eedd72a_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@284c57c7_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f4c3843_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ac40409_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f9fe4f1_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18e1443e_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c778417_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23866a40_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a819e13_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4eb5917e_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36ca4ae6_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@cf2dbb9_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7037f0d0_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ba5ad70_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@664dfa24_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b0e19b1_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@789c067d_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c11ee6f_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4457521_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@701831fc_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@66c244c0_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@279beeef_ARCHIVE_LOCATION">/home/maomao/Desktop/junior_IAP/FPGAIsing/projects/ip_repo/axi_bram_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a63f3fc"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7a37a091"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="03b04e4c"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="8ce0300f"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2900f9c7"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="bcdb003f"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="09daa173"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9194526e"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="c1a3c9e2"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
