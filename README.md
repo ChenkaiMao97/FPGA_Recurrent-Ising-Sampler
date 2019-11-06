@@ -37,9 +37,10 @@ The folders and description:
 4. **bram_1**: Interface with Bram
 5. **bram_initFile**: Using Bram with initialization file and simulation.
 6. **loop_8by8**: basic version of the loop, problem size 8 by 8
-7. **(Current working on) loop_100by100**: scaled version of the loop, problem size 100 by 100
-8. **ip_repo**: custum-designed IPs
-9. **Miles**: works from Miles
+7. **loop_100by100**: scaled version of the loop, problem size 100 by 100
+8. **(Current working on) loop_100by100_5bram**: increased the number of bram to be 5 
+9. **ip_repo**: custum-designed IPs
+10. **Miles**: works from Miles
 
 ## How to use this repository:
 Since this is a project run on ZCU104 board with PYNQ architecture, it would be hard to copy and adapt on your own machine, but the source files should be of good reference.
@@ -47,7 +48,7 @@ Since this is a project run on ZCU104 board with PYNQ architecture, it would be 
 If you have the required hardware and want to reproduce the results, the procedures for running the 100 by 100 loop project are:
 1. Setup your board to run PYNQ(you need an SD card and copy image [here](http://www.pynq.io/board.html))
 2. Setup a wifi that both your computer and FPGA connect to(using a router would help), and use [nmap](https://pynq.readthedocs.io/en/latest/getting_started/zcu104_setup.html)(if you're on Linux or Mac) to find the IP address of the FPGA board, and access that IP address in the web browser on your PC, login to the jupyter notebook interface. See [this](https://pynq.readthedocs.io/en/latest/getting_started/zcu104_setup.html) for detailed setup.
-3. Load the .bit and .tcl(or .hwh) file onto the FPGA, which are the only required two files to run a project. In this case we use source code in folder loop_100by100 as an example.
+3. Load the .bit and .tcl(or .hwh) file onto the FPGA, which are the only required two files to run a project. In this case we use source code in folder loop_100by100_5bram as an example.
 4. Whenever you want to create a new spinglass example, go into script prepareData.Ipynb, in which sections and usage:
     - "Create one spin glass data"： create a test data with all float numbers
     - "Store a running case": store the folat data version state and energy over many loop cycles.
